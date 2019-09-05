@@ -1,15 +1,21 @@
-var canvas = document.getElementById('sandbox');
+const canvas = document.getElementById('sandbox');
+const context = canvas.getContext('2d');
 
+var focalDistance = 0;
+var focalLength = 0;
+var aperture = 0;
 
-var context = canvas.getContext('2d');
-
-var foo = 0;
 const reset = event => {
-    console.log("reset: ", event)
     draw()
 }
 
-function draw() {
+const handleFocalDistanceOnChange = event => {
+    var label = document.getElementById("label-hyperfocal")
+    foo = event.target.value
+    label.innerText = foo
+    draw()
+}
+const draw = () => {
     var height = window.innerHeight - 200
     canvas.width = window.innerWidth * window.devicePixelRatio;
     canvas.height = height * window.devicePixelRatio;
@@ -25,10 +31,4 @@ function draw() {
     context.stroke();
 
 }
-const handleSliderOnChange = event => {
-    console.log("handleSliderOnChange: ", event.target.value)
-    var label = document.getElementById("label-hyperfocal")
-    foo = event.target.value
-    label.innerText = foo
-    draw()
-}
+

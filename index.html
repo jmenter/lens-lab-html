@@ -9,10 +9,30 @@
 
 <body onload="reset(event)">
     <div class="background" id="background">
-        <div class="label" id="label-hyperfocal">999</div>
+        <div class="label focal-distance" id="label-hyperfocal">999</div>
+        <div class="label focal-length" id="label-hyperfocal">999</div>
+        <div class="label focal-aperture" id="label-hyperfocal">999</div>
     </div>
     <canvas class="sandbox" id="sandbox"></canvas>
-    <input type="range" min="1" max="100" value="50" class="slider" id="myRange" oninput="handleSliderOnChange(event)">
+    <div class="labels-container">
+        <div class="slider-label" id="focal-distance-label">
+            Focal Distance: 999
+        </div>
+        <div class="slider-label" id="focal-distance-label">
+            Focal Distance: 999
+        </div>
+        <div class="slider-label" id="focal-distance-label">
+            Focal Distance: 999
+        </div>
+    </div>
+    <div class="sliders-container">
+        <input type="range" min="1" max="100" value="50" class="slider" id="focalDistanceSlider"
+            oninput="handleFocalDistanceOnChange(event)">
+        <input type="range" min="1" max="100" value="50" class="slider" id="focalLengthSlider"
+            oninput="handleFocalLengthOnChange(event)">
+        <input type="range" min="1" max="100" value="50" class="slider" id="apertureSlider"
+            oninput="handleApertureOnChange(event)">
+    </div>
     <script src="./source.js"></script>
 </body>
 

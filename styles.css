@@ -15,6 +15,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 
 body {
     line-height: 1;
+    background-color: black;
 }
 
 ol, ul {
@@ -43,11 +44,45 @@ table {
 }
 
 .sandbox {
-    /* background-color: #ffffff00; */
     position: fixed;
     top: 0px;
     width: 100%;
     height: 200px;
 }
 
-.slider {}
+.label {
+    font-size: 18px;
+    font-weight: 500;
+    text-shadow: 1px 1px 2px black;
+}
+
+.focal-distance {
+    color: #ff0000;
+}
+
+.focal-length {
+    color: #0000ff;
+}
+
+.aperture {
+    color: #ff7700;
+}
+
+.labels-container {
+    width: 200px;
+}
+
+.slider-label {
+    float: left;
+    clear: both;
+    text-align: center;
+    width: 100%;
+    color: white;
+}
+
+.sliders-container {}
+
+.slider {
+    float: left;
+    clear: both;
+}

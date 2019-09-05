@@ -1,0 +1,19 @@
+<html>
+
+<head>
+    <title>Lens•Lab</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="./styles.css" rel="stylesheet" type="text/css">
+</head>
+
+<body onload="reset(event)">
+    <div class="background" id="background">
+        <div class="label" id="label-hyperfocal">999</div>
+    </div>
+    <canvas class="sandbox" id="sandbox"></canvas>
+    <input type="range" min="1" max="100" value="50" class="slider" id="myRange" oninput="handleSliderOnChange(event)">
+    <script src="./source.js"></script>
+</body>
+
+</html>

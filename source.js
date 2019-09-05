@@ -1,34 +1,65 @@
-const canvas = document.getElementById('sandbox');
-const context = canvas.getContext('2d');
+const canvas = document.getElementById("sandbox");
+const context = canvas.getContext("2d");
 
 var focalDistance = 0;
 var focalLength = 0;
 var aperture = 0;
 
 const reset = event => {
-    draw()
-}
+  draw();
+};
 
 const handleFocalDistanceOnChange = event => {
-    var label = document.getElementById("label-hyperfocal")
-    foo = event.target.value
-    label.innerText = foo
-    draw()
-}
+  focalDistance = event.target.value;
+  var label = document.getElementById("label-hyperfocal");
+  label.innerText = "Focal Distance: " + focalDistance;
+  draw();
+};
+
+const handleFocalLengthOnChange = event => {
+  focalLength = event.target.value;
+  var label = document.getElementById("label-dof-far");
+  label.innerText = "DoF Far: " + focalLength;
+  draw();
+};
+
+const handleApertureOnChange = event => {
+  aperture = event.target.value;
+  var label = document.getElementById("label-focal-distance");
+  label.innerText = "Aperture: " + aperture;
+  draw();
+};
+
 const draw = () => {
-    var height = window.innerHeight - 200
-    canvas.width = window.innerWidth * window.devicePixelRatio;
-    canvas.height = height * window.devicePixelRatio;
-    canvas.style.width = window.innerWidth + 'px';
-    canvas.style.height = height + 'px';
+  var height = window.innerHeight - 200;
+  canvas.width = window.innerWidth * window.devicePixelRatio;
+  canvas.height = height * window.devicePixelRatio;
+  canvas.style.width = window.innerWidth + "px";
+  canvas.style.height = height + "px";
 
-    context.clearRect(0, 0, canvas.width, canvas.height);
+  context.clearRect(0, 0, canvas.width, canvas.height);
 
-    context.beginPath();
-    context.moveTo(0, canvas.height / 2)
+  context.lineWidth = 5;
+  context.strokeStyle = "#ff0000";
+  context.beginPath();
+  context.moveTo(0, canvas.height / 2);
 
-    context.lineTo(canvas.width * (foo / 100), canvas.height / 2)
-    context.stroke();
+  context.lineTo(canvas.width * (focalDistance / 100), canvas.height / 1);
+  context.stroke();
 
-}
+  context.lineWidth = 5;
+  context.strokeStyle = "#00ff00";
+  context.beginPath();
+  context.moveTo(0, canvas.height / 2);
 
+  context.lineTo(canvas.width * (focalLength / 100), canvas.height / 1.5);
+  context.stroke();
+
+  context.lineWidth = 5;
+  context.strokeStyle = "#000ff";
+  context.beginPath();
+  context.moveTo(0, canvas.height / 2);
+
+  context.lineTo(canvas.width * (aperture / 100), canvas.height / 2);
+  context.stroke();
+};

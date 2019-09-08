@@ -1,3 +1,4 @@
+
 const canvas = document.getElementById("sandbox");
 const context = canvas.getContext("2d");
 
@@ -30,8 +31,12 @@ const handleApertureOnChange = event => {
   draw();
 };
 
+const handleWindowResize = event => {
+  draw();
+}
+
 const draw = () => {
-  var height = window.innerHeight - 200;
+  var height = window.innerHeight - 104;
   canvas.width = window.innerWidth * window.devicePixelRatio;
   canvas.height = height * window.devicePixelRatio;
   canvas.style.width = window.innerWidth + "px";

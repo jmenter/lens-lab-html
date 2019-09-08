@@ -1,58 +1,50 @@
 <html>
-  <head>
-    <title>Lens•Lab</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link href="./styles.css" rel="stylesheet" type="text/css" />
-  </head>
 
-  <body onload="reset(event)">
-    <div class="background" id="background">
-      <div class="label focal-distance" id="label-hyperfocal">999</div>
-      <div class="label focal-length" id="label-dof-far">999</div>
-      <div class="label focal-aperture" id="label-focal-distance">999</div>
+<head>
+  <title>Lens•Lab</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="./styles.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body onload="reset(event)" onresize="handleWindowResize(event)">
+  <div class="background" id="background">
+    <div class="main-labels-container">
+      <div class="label focal-distance" id="label-hyperfocal">Hyperfocal Distance:</div>
+      <div class="label focal-length" id="label-dof-far">Depth of Field Far:</div>
+      <div class="label focal-aperture" id="label-focal-distance">Focal Distance:</div>
+      <div class="label focal-aperture" id="label-focal-distance">Depth of Field Near:</div>
+      <div class="label focal-aperture" id="label-focal-distance">Depth of Field Total:</div>
     </div>
-    <canvas class="sandbox" id="sandbox"></canvas>
-    <div class="labels-container">
-      <div class="slider-label" id="focal-distance-label">
-        Focal Distance: 90m
-      </div>
-      <div class="slider-label" id="focal-distance-label">
-        Focal Length: 200mm
-      </div>
-      <div class="slider-label" id="focal-distance-label">
-        Aperture: ƒ2.8
-      </div>
+    <div class="main-values-container">
+      <div class="value focal-distance" id="label-hyperfocal">1,000m</div>
+      <div class="value focal-length" id="label-dof-far">200mm</div>
+      <div class="value focal-aperture" id="label-focal-distance">24,000m</div>
+      <div class="value focal-aperture" id="label-focal-distance">24,000m</div>
+      <div class="value focal-aperture" id="label-focal-distance">24,000m</div>
     </div>
-    <div class="sliders-container">
-      <input
-        type="range"
-        min="1"
-        max="100"
-        value="50"
-        class="slider"
-        id="focalDistanceSlider"
-        oninput="handleFocalDistanceOnChange(event)"
-      />
-      <input
-        type="range"
-        min="1"
-        max="100"
-        value="50"
-        class="slider"
-        id="focalLengthSlider"
-        oninput="handleFocalLengthOnChange(event)"
-      />
-      <input
-        type="range"
-        min="1"
-        max="100"
-        value="50"
-        class="slider"
-        id="apertureSlider"
-        oninput="handleApertureOnChange(event)"
-      />
+  </div>
+  <canvas class="sandbox" id="sandbox"></canvas>
+  <div class="labels-container">
+    <div class="slider-label" id="focal-distance-label">
+      Focal Distance: 90m
     </div>
-    <script src="./source.js"></script>
-  </body>
+    <div class="slider-label" id="focal-distance-label">
+      Focal Length: 200mm
+    </div>
+    <div class="slider-label" id="focal-distance-label">
+      Aperture: ƒ2.8
+    </div>
+  </div>
+  <div class="sliders-container">
+    <input type="range" min="1" max="100" value="50" class="slider" id="focalDistanceSlider"
+      oninput="handleFocalDistanceOnChange(event)" step="any" />
+    <input type="range" min="1" max="100" value="50" class="slider" id="focalLengthSlider"
+      oninput="handleFocalLengthOnChange(event)" step="any" />
+    <input type="range" min="1" max="100" value="50" class="slider" id="apertureSlider"
+      oninput="handleApertureOnChange(event)" step="any" />
+  </div>
+  <script src="./source.js"></script>
+</body>
+
 </html>

@@ -36,6 +36,8 @@ const handleWindowResize = event => {
 }
 
 const draw = () => {
+  console.log("drawing canvas: ", canvas);
+  console.log("drawing context: ", context);
   var height = window.innerHeight - 104;
   canvas.width = window.innerWidth * window.devicePixelRatio;
   canvas.height = height * window.devicePixelRatio;
@@ -61,7 +63,7 @@ const draw = () => {
   context.stroke();
 
   context.lineWidth = 5;
-  context.strokeStyle = "#000ff";
+  context.strokeStyle = "#0000ff";
   context.beginPath();
   context.moveTo(0, canvas.height / 2);
 
